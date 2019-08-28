@@ -1,0 +1,31 @@
+.search-popup
+	.search-popup__form
+		.wrapper
+			.search-form
+				.search-form__title Поиск
+				.search-form__form
+					form(action="#")
+						.search-form__form-inputs
+							input.search-form__input.default-input__input(type="text" placeholder="Введите запрос")
+							input.search-form__submit(type="submit" value="")
+				.search-form__results
+					ul.search-results
+						- for(let i = 0; i < 5; i++)
+							each item in ["Охлаждённые и засороженные продукты", "Продукция \"царский стол\"", "Продукция в специи \"гриль\""]
+								li
+									a.search-results__link(href="#")=item
+aside.main__side
+	.mp-side
+		.mp-side__logo
+			a.logo(href="#")
+				<!-- всталять логотип через file_get_contents (img/logo.svg) -->
+				include ../../img/logo.svg
+		.mp-side__burger
+			.burger
+				span
+		.mp-side__links
+			.mp-side__links-link
+				a.lang-link(href="#") En
+			.mp-side__links-link
+				a.search-link(href="#")
+a.fancybox.default-btn.write-link(href="#write") Написать нам

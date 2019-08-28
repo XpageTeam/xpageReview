@@ -1,0 +1,245 @@
+html
+	font-size: 100%
+
+input, a, button, textarea, select
+	outline: none
+
+*::-webkit-input-placeholder
+	color: #adb4c6
+	opacity: 1
+
+*:-moz-placeholder
+	color: #adb4c6
+	opacity: 1
+
+*::-moz-placeholder
+	color: #adb4c6
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #adb4c6
+	opacity: 1
+
+.swiper-button-disabled
+	opacity: .5
+	pointer-events: none
+
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select, input[type="submit"], button
+	-webkit-appearance: none
+	appearance: none
+	font-family: inherit
+	box-shadow: none
+
+	&:focus
+
+		&::-webkit-input-placeholder
+			opacity: 0
+
+		&:-moz-placeholder
+			opacity: 0
+
+		&::-moz-placeholder
+			opacity: 0
+
+		&:-ms-input-placeholder
+			opacity: 0
+
+/*
+input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea, select
+	border-radius: 0
+
+*/
+
+
+*, *:after, *:before
+	box-sizing: border-box
+
+*[v-cloak]
+	display: none
+
+address
+	font-weight: inherit
+
+html, body
+	height: 100%
+
+body
+	min-width: 320px
+	line-height: lh(22, 16)
+	font-family: var(--default-font)
+	font-weight: 400
+	font-size: var(--base-font-size)
+	color: var(--body-text-color)
+	background: var(--body-bg-color)
+	position: relative
+	left: 0
+
+.swiper-container-fade .swiper-slide
+	will-change: opacity
+
+
+select
+	-webkit-appearance: none
+	/* for FF */
+	-moz-appearance: none
+	text-indent: 0.01px
+	text-overflow: ''
+	/* for IE */
+	-ms-appearance: none
+	appearance: none!important
+
+	&::-ms-expand 
+		display: none
+
+.head, .footer
+	flex: none
+
+#content
+	flex: 1 1 auto
+
+.inner-content
+	flex: 1 1 auto
+	position: relative
+	z-index: 2
+
+a
+	color: #000
+	font-weight: inherit
+	text-decoration: none
+
+	&[href^="tel"], &[href^="mail"]
+		white-space: nowrap
+
+	&:not([class])
+		color: var(--main-color-darken)
+		border-bottom: 1px solid transparent
+
+		&:hover, &:focus
+			border-color: currentColor
+
+b
+	font-weight: 600
+
+.wrapper
+	max-width: var(--base-width)
+	padding: 0 20px
+	margin: 0 auto
+	box-sizing: content-box
+
+	.wrapper
+		padding: 0
+
+input[type="submit"], button
+	cursor: pointer
+
+img, svg
+	max-width: 100%
+
+li
+	list-style: none
+
+.table-wrap
+	position: relative
+
+	&__track
+		overflow-x: auto
+		-webkit-overflow-scrolling: touch
+
+	&__shadow
+		width: 12px
+		position: absolute 0 *
+		pointer-events: none
+		background: linear-gradient(to right, rgba(#fff, .0001), rgba(#000, .1))
+		opacity: 0
+
+		&--left
+			left: 0	
+			transform: rotateZ(180deg)
+
+		&--right
+			right: 0	
+
+.f-soc
+	display: flex
+	flex-wrap: wrap
+
+	&__link
+		display: flex
+		align-items: center
+		justify-content: center
+		background: #2E3844
+		size: 42px
+		border-radius: 5px
+		transition: background .3s ease
+
+		path
+			transition: fill .3s ease
+
+		&:not(:last-child)
+			margin-right: 18px
+
+		&:hover
+			background: var(--main-color)
+
+			path
+				fill: #fff
+
+
+.swiper-list
+	overflow: hidden
+
+.swiper-button
+
+	&-prev, &-next
+		border-radius: 50%
+		size: 53px
+		position: relative
+		top: auto
+		left: auto
+		right: auto
+		margin: 0
+		background: none
+		transition: color .3s ease, background-color .3s ease
+
+		&:after
+			content: ""
+			position: absolute calc(50% - 4px) calc(50% - 4px) * *
+			size: 8px
+			border-top: 1px solid currentColor
+			border-right: 1px solid currentColor
+			transform: rotateZ(45deg)
+
+		&:not(:hover, :focus)
+			color: #000 #fff
+
+		&:hover, &:focus
+			color: #fff var(--main-color)
+	
+	&-prev
+		transform: rotateZ(180deg) 
+
+		&:after
+			right: calc(50% - 2px)
+
+.default-btn
+	color: #fff var(--main-color)
+
+.white-btn
+	color: #000 #fff
+
+	&:hover, &:focus
+		color: #fff
+
+.default-btn, .white-btn
+	padding: 16px 32px
+	display: inline-block
+	border: none
+	border-radius: 50px
+	transition: background-color .3s ease, color .3s ease
+	cursor: pointer
+	text-transform: uppercase
+	font-size: em(12)
+	white-space: nowrap
+
+	&:hover, &:focus
+		background-color: lighten(#E25C2A, .1)

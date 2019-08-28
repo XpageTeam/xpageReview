@@ -1,0 +1,63 @@
+.footer
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	color: #fff var(--main-color)
+	padding: 65px 88px 75px
+
+	a
+		color: inherit
+
+.f-menu, .f-submenu
+
+	&__link
+		border-bottom: 1px solid transparent
+		transition: border-color .3s ease
+
+		&:hover, &:focus
+			border-color: currentColor
+
+.f-menu
+
+	&__item
+
+		&:not(:first-child)
+			margin: 17px 0 0
+
+		&--submenu
+			margin: vh(40) 0 0 !important
+
+	&__link
+		text-transform: uppercase
+		font-weight: 600
+		font-size: em(12)
+		letter-spacing: .02em
+
+.f-submenu
+	margin: 17px 0 0
+
+	li
+		margin: 13px 0 0
+
+	&__link
+		letter-spacing: .02em
+
+.f-contacts
+	letter-spacing: .02em
+
+	&__item
+
+		// &:not(:first-child)
+		// 	margin: 5px 0 0
+
+		a
+			font-size: em(16)
+			display: inline-block
+			// background: url("../img/")
+			padding: 2px 0 2px 25px
+
+			&[href*="mailto"]
+				background: url("../img/ico-mail.svg") left center no-repeat
+
+			&[href*="tel"]
+				background: url("../img/ico-phone.svg") left center no-repeat

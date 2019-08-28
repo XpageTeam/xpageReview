@@ -1,0 +1,39 @@
+.text-container
+	position: relative
+
+	&:not(:first-child)
+		margin: 230px 0 0
+
+	&--right-img &__img
+		right: 0
+
+	&--left-img
+		left: 0
+
+		.wrapper
+			display: flex
+			width: 100%
+			justify-content: center
+
+	&--center-text &__img
+		top: 50%
+		transform: translateY(-50%)
+
+	&--top-text &__img
+		top: 0
+
+	&__img
+		position: absolute
+
+		img
+			display: 
+
+	&__text
+		max-width: 615px
+		font-size: em(20)
+		line-height: calc(34 / 20)
+
+	&__title
+		font-size: em(36)
+		line-height: calc(54 / 36)
+		max-width: 920px

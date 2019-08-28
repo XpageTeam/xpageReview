@@ -1,0 +1,183 @@
+strong
+	font-weight: bold
+
+p
+	margin-top: em(27)
+
+h2, h3, h4, h5, h6, p, img, table, .table-wrap, ul, ol
+
+	&:first-child
+		margin-top: 0
+
+h2, h3, h4, h5, h6
+	font-weight: 400
+	margin-bottom: 5px
+	
+	&:not(:first-child)
+		margin-top: em(32)
+
+	+ *
+		margin-top: 0
+
+h2
+	font-size: em(24)
+	line-height: calc(32 / 26)
+
+h3
+	font-size: em(22)
+	line-height: calc(28 / 22)
+
+h4
+	font-size: em(20)
+	line-height: calc(28 / 18)
+
+h5
+	font-size: em(18)
+	line-height: calc(24 / 16)
+
+h6
+	font-size: em(16)
+
+blockquote
+	background: var(--second-color)
+
+[align="right"]
+	float: right
+	margin-left: em(60)
+
+[align="left"]
+	float: left
+	margin-right: em(60)
+
+
+img[height]
+	height: auto
+
+[align]
+	margin-bottom: em(35)
+
+	img
+		display: block
+		margin: 0
+
+table:not([class])
+	margin: em(52) 0 em(20)
+
+	thead
+
+		th, td
+			background: #F4F4F4
+			text-align: left
+			padding-top: em(22)
+			padding-bottom: em(22)
+			font-size: em(16)
+
+	td, th
+		padding: em(16) em(60)
+		font-weight: inherit
+		font-size: em(14)
+
+		&:not([valign]), &[valign="middle"]
+			vertical-align: middle
+
+		&[valign="top"]
+			vertical-align: top
+
+		&[valign="bottom"]
+			vertical-align: bottom
+
+	td
+		transition background .3s ease
+
+	&[cellspacing]:not([cellspacing="1"]):not([cellspacing="0"])
+
+table[border="1"]:not([class])
+	min-width: 100%
+
+	td, th
+		border: 1px solid var(--border-color)
+
+
+ul, ol
+
+	&:not([class]) li
+
+		&:not(:first-child)
+			margin: 3px 0 0
+
+		&:before
+			display: inline-block
+
+		ul, ol
+			margin-bottom: em(20)
+			margin-top: 0
+
+		li
+
+			&:before
+				margin-right: 10px !important
+
+			&:not(:first-child)
+				margin-top: 5px
+
+ul
+
+	&:not([class])
+
+		> li
+
+			&:before
+				content: "—"
+				margin: 0 16px 2px 0
+				display: inline-block
+				border-radius: 50%
+				background: var(--mainColor)
+				size: 6px
+				text-indent: 0
+
+			li
+				text-indent: 16px
+
+		ul
+
+			> li
+
+				&:before
+					content: "-"
+
+ol:not([class])
+
+
+	> li
+		list-style-type: decimal
+		list-style-position: inside
+
+		li
+			font-weight: 300
+			margin: em(22) 0 0 !important
+
+@media (max-width: 1000px)
+	[align="right"]
+		margin-left: em(30)
+
+	[align="left"]
+		margin-right: em(30)
+
+@media (max-width: 1000px) and (min-width: 660px)
+	[align]
+		max-width: 50% !important
+
+@media (max-width: 660px)
+	[align]
+		float: none
+		width: 100%
+		margin-left: 0
+		margin-right: 0
+
+		img
+			width: inherit
+
+	table:not([class])
+
+		td, th
+			padding: 20px

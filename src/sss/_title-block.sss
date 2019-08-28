@@ -1,0 +1,35 @@
+.title-block
+
+	&__title
+		margin-bottom: 14px
+
+		h1
+			font: bold em(95) var(--title-font)
+			letter-spacing: .02em
+			line-height: calc(37 / 24)
+			color: var(--main-color)
+			line-height: calc(122 / 95)
+
+.bread-crumbs
+	line-height: calc(18 / 14)
+	
+	&__link, &__this
+		display: inline
+
+	&__this
+		color: rgba(0,0,0, .3)
+
+	&__link
+		margin-right: 20px
+
+		&:after
+			content: ""
+			border-top: 1px solid var(--border-color)
+			border-right: 1px solid var(--border-color)
+			display: inline-block
+			transform: rotate(45deg)
+			size: 5px
+			margin: 0 0 2px 18px
+
+		a
+			color: var(--main-color)

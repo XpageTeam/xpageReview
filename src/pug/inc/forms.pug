@@ -1,0 +1,76 @@
+.popup#call
+	.mc-form
+		.mc-form__title Заказать звонок
+		form(action="#")
+			.mc-form__inputs
+				.form__inputs.form__inputs--2
+					.form__inputs-input
+						.default-input
+							input.default-input__input(type="text" placeholder="Николай Владимирович Аношкин" value="Николай Владимирович Аношкин")
+							label.default-input__label ФИО
+							.default-input__error
+								.error-text
+									<!-- текст ошибки -->
+					.form__inputs-input
+						.default-input
+							input.default-input__input(type="tel" inputmode="tel" pattern='\\+7\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}' placeholder="+7 (900) 000-00-00")
+							label.default-input__label телефон
+							.default-input__error
+								.error-text
+									<!-- текст ошибки -->
+			.mc-form__submit
+				.form__submit.form__submit--reverse
+					.form__submit-btn
+						input.default-btn(type="submit" value="Заказать")
+					.form__submit-text Нажимая на кнопку отправки сообщения, я соглашаюсь
+						br
+						| на обработку моих 
+						a(href="#") персональных данных
+
+
+.popup#request
+	.mc-form
+		.mc-form__title Оставить заявку
+		form(action="#")
+			.mc-form__inputs
+				.form__inputs.form__inputs--2
+					.form__inputs-input.form__inputs-input--2
+						.default-input
+							input.default-input__input(type="text" placeholder="Николай Владимирович Аношкин" value="Николай Владимирович Аношкин")
+							label.default-input__label Имя
+							.default-input__error
+								.error-text
+									<!-- текст ошибки -->
+					.form__inputs-input
+						.default-input
+							input.default-input__input(type="tel" inputmode="tel" pattern='\\+7\\s\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{2}-[0-9]{2}' placeholder="+7 (900) 000-00-00")
+							label.default-input__label телефон
+							.default-input__error
+								.error-text
+									<!-- текст ошибки -->
+					.form__inputs-input
+						.default-input
+							input.default-input__input(type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$" inputmode="email" placeholder="mail@yandex.ru")
+							label.default-input__label e-mail
+							.default-input__error
+								.error-text
+									<!-- текст ошибки -->
+					.form__inputs-input.form__inputs-input--2
+						.default-input
+							input.default-input__input.default-input__input--file(type="file" name="file" accept="Docx, exсel, pdf, jpg, png" id="price-file")
+							.default-input__input-filetext
+								input.default-input__input(type="text" readonly="" placeholder="Docx, exсel, pdf, jpg, png")
+								label.default-input__label-file(for="price-file")
+							label.default-input__label файл с дополнительной информацией по заявке
+					.form__inputs-input.form__inputs-input--2
+						.default-input
+							textarea.default-input__input.default-input__input--textarea
+							label.default-input__label Ваще сообщение
+			.mc-form__submit
+				.form__submit
+					.form__submit-btn
+						input.default-btn(type="submit" value="Отправить")
+					.form__submit-text Нажимая на кнопку отправки сообщения, я соглашаюсь
+						br
+						| на обработку моих 
+						a(href="#") персональных данных

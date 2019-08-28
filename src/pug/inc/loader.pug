@@ -1,0 +1,36 @@
+.main__loader
+	.loader
+		.loader__logo
+			include ../../img/loader-logo.svg
+			//- img(src="img/loader-logo.svg")
+		.loader__link
+			.l-line
+				.l-line__line
+					.l-line__line-progress
+				.l-line__text 
+					span 0
+					| %
+		script(data-skip-moving="true")
+			| ;(function(){
+			| 	var progressLine = document.querySelector(".l-line__line-progress"),
+			| 		progressCounter = document.querySelector(".l-line__text span"),
+			| 		maxProgress = 20;
+
+			| 	var curStep = 0;
+
+			| 	var preloader = function() {
+			| 		curStep++
+			| 		progressCounter.innerText = curStep.toString()
+
+			|		progressLine.style.transform = "scaleX("+(curStep / 100)+")"
+			| 	};
+
+			| 	var preloaderTimer = setInterval(function(){
+			|		if (curStep < maxProgress)
+			|			preloader()
+			|	}, 300)
+
+			| 	document.addEventListener("DOMContentLoaded", function() {
+			| 		clearInterval(preloaderTimer)
+			| 	})
+			| })()
