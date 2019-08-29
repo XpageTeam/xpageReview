@@ -1,0 +1,61 @@
+.about-container
+	margin: 185px 0 0
+	color: #fff #161616
+
+	.wrapper
+		position: relative
+		z-index: 2
+
+.next-link
+	position: absolute 0 0 0 *
+	color: #fff
+	writing-mode: tb-rl
+	transform: rotateZ(180deg)
+	transition: color .3s ease
+	color: rgba(255, 255, 255, 0.3)
+	text-align: center
+
+	&:hover, &:focus
+		color: #fff
+
+	&:before
+		content: ""
+		position: absolute * calc(50% - 5px) calc(100% - 80px) *
+		background: url("../img/ico-arb.svg") no-repeat
+		size: 11px 160px
+		transform: rotateZ(180deg)
+
+
+.about
+	padding: 125px 0 145px
+
+	&__text
+
+		&:not(:last-child)
+			margin: 0 0 45px
+
+		&-title
+			letter-spacing: .02em
+			color: rgba(255, 255, 255, 0.3)
+			line-height: 1
+			margin: 0 0 5px
+
+		&-text
+			font-size: em(18)
+			line-height: calc(31 / 18)
+			max-width: 710px
+
+	&__list
+		display: flex
+
+		&-item
+
+			&:not(:last-child)
+				margin-right: 135px
+
+@media (max-width: 1650px)
+	.about-container
+		margin: 120px 0 0
+
+	.about
+		padding: 100px 0

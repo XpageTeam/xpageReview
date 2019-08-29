@@ -45,9 +45,22 @@ blockquote
 
 	&:before, &:after
 		content: "“"
-		font-size: em(144)
+		font-size: em(144, 48)
 		line-height: 1
+		font-weight: bold
 		position: absolute
+		-webkit-text-stroke: 1px #A8A8A8
+		text-stroke: 1px #A8A8A8
+		color: transparent
+
+	&:after
+		transform: rotateZ(180deg)
+		left: calc(100% + 10px)
+		bottom: -25px
+
+	&:before
+		right: calc(100% - 10px)
+		top: -25px
 
 [align="right"]
 	float: right
