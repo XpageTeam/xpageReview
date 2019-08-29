@@ -39,7 +39,15 @@ h6
 	font-size: em(16)
 
 blockquote
-	background: var(--second-color)
+	font-size: em(48)
+	line-height: calc(64 / 48)
+	position: relative
+
+	&:before, &:after
+		content: "“"
+		font-size: em(144)
+		line-height: 1
+		position: absolute
 
 [align="right"]
 	float: right
@@ -125,15 +133,18 @@ ul
 	&:not([class])
 
 		> li
+			padding-left: 35px
+			position: relative
 
 			&:before
-				content: "—"
-				margin: 0 16px 2px 0
-				display: inline-block
+				content: ""
 				border-radius: 50%
-				background: var(--mainColor)
+				background: #000
+				position: absolute 12px * * 0
 				size: 6px
-				text-indent: 0
+
+			&:not(:first-child)
+				margin: 11px 0 0
 
 			li
 				text-indent: 16px

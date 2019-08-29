@@ -9,8 +9,6 @@ module.exports = (env, argv) => {
 		entry: {
 			base: "./src/js/common.js",
 			common: "./src/ts/common.ts",
-			// preloader: "./src/ts/xpage/preloader.ts",
-			"main-page": "./src/ts/main-page.ts"
 		},
 		output: {
 			path: path.resolve(__dirname, "./docs"),
