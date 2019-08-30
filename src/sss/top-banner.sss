@@ -2,6 +2,18 @@
 	position: relative
 	margin: 0 0 150px
 
+	+ section
+		margin-top: 0 !important
+
+		.text-container__img
+			top: 0 !important
+
+	&.js__visible
+
+		.string, .top-banner__text-subtitle
+			opacity: 1
+			transform: translate3d(0,0,0) !important
+
 	&__img
 
 
@@ -25,6 +37,9 @@
 
 		&-subtitle
 			margin: 0 0 20px
+			transition: opacity .5s ease, transform .5s ease
+			opacity: 0
+			transform: translate3d(0, 100%, 0)
 
 		&-title
 			font-size: em(48)
@@ -38,7 +53,37 @@
 		position: absolute * * 105px calc(50% - 30px)
 		border: none
 		z-index: 1
+		animation: bounce 1.1s ease infinite
+
+.string
+	white-space: nowrap
+	opacity: 0
+	transition: transform .5s ease, opacity .5s ease
 
 @media (max-width: 1650px)
 	.top-banner
 		margin: 0 0 100px
+
+@media (max-width: 1200px)
+	.top-banner
+		margin: 0 0 40px
+
+@keyframes bounce
+	0%, 100%
+		transform: translate3d(0, 0, 0)
+	50%
+		transform: translate3d(0, -20px, 0)
+
+
+@media (max-width: 1000px)
+	.top-banner
+
+		&__text
+			font-size: 10px
+
+		&__scroller
+			display: none
+
+@media (max-width: 660px)
+	.top-banner__text > span
+		display: none

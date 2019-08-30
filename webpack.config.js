@@ -90,12 +90,12 @@ module.exports = (env, argv) => {
 		                enforce: true,
 		                chunks: 'all',
 		            },
-		            lol: {
-		                test: /(jquery.fancybox.js|jquery.fancybox.css)/,
-		                name: 'vendors',
-		                enforce: true,
-		                chunks: 'all'
-		            },
+		            // lol: {
+		            //     test: /(jquery.fancybox.js|jquery.fancybox.css)/,
+		            //     name: 'vendors',
+		            //     enforce: true,
+		            //     chunks: 'all'
+		            // },
 		            // preloader: {
 		            // 	test: "/(preloader.ts)/",
 		            // 	name: "js/preloader",

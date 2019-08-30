@@ -1,79 +1,89 @@
-import $ from "jquery"
-import is from "is_js"
-// import stringEffect from "./stringAnimate.js"
+import stringEffect from "./stringAnimate.js"
 import {TweenLite, SlowMo} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin.js"
+
+let $;
+
+// if (process.env.NODE_ENV == "development")
+	$ = require("jquery")
 
 
 window.$ = $;
 window.jQuery = $;
-window.is = is
+
 
 window.get$ = (element) => {
 	return $(element)
-}
 
-require("./jquery.fancybox.js")
-require("../css/jquery.fancybox.css")
+}
+document.addEventListener("DOMContentLoaded", function(){
+	$(".top-banner__text-title").each((i, el) => {
+		new stringEffect({
+			selector: el,
+		});
+	});
+
+	$(".top-banner__scroller").click(function(){
+		$("html, body").animate({
+			scrollTop: $(".top-banner").height()
+		}, 500)
+	})
+})
+
+const scrollTime = .5;			//Scroll time
+const scrollDistance = 170;		//Distance. Use smaller value for shorter scroll and greater value for longer scroll
 
 document.addEventListener("DOMContentLoaded", function(){
-	const scrollTime = 1;			//Scroll time
-	const scrollDistance = 170;		//Distance. Use smaller value for shorter scroll and greater value for longer scroll
+	window.addEventListener("mousewheel", (event) => {
+		event.preventDefault()
 
-	if (document.body.classList.contains("main")){
-		const scroller = document.querySelector(".main__wrapper");
+		const delta = event.wheelDelta/120 || -event.detail/3;
+		const scrollTop = window.scrollY;
+		const finalScroll = scrollTop - parseInt((delta*scrollDistance).toString());
 
-		if (!scroller)
+		TweenLite.to(window, scrollTime, {
+			scrollTo: {
+				x: 0,
+				y: finalScroll,
+				autoKill: true
+			},
+			ease: SlowMo.easeInOut,
+			autoKill: true,
+			overwrite: 5,
+		})
+	}, {
+		passive: false
+	})
+
+	window.addEventListener("scroll", imgAnimate);
+	window.addEventListener("touchmove", imgAnimate);
+})
+
+const imgAnimate = () =>{
+	$(".text-container.js__visible").each(function (i, el) {
+		const $this = $(this);
+
+		setTimeout(function(){
+			$this.find(".text-container__img").css({
+				overflow: "visible"
+			})
+		}, 2000)
+
+		if (window.matchMedia("(max-width: 1200px)").matches)
 			return
 
-		scroller.addEventListener("mousewheel", (event) => {
-			if (!window.state.anyScrollOpened)
-				return
-			
-			event.preventDefault()
+		// TweenLite.to($this.find(".text-container__img"), scrollTime, {
+		// 	transform: !$this.hasClass("text-container--center-text")
+		// 		? `translateY(-${window.scrollY / 4 / (i + 3)}px)`
+		// 		 : `translateY(calc(-50% - ${window.scrollY / 4 / (i + 4)}px))`,
+		// 	ease: SlowMo.easeInOut,
+		// 	overwrite: 5,
+		// })
 
-			const delta = event.wheelDelta/120 || -event.detail/3;
-			const scrollLeft = scroller.scrollLeft;
-			const finalScroll = scrollLeft - parseInt((delta*scrollDistance).toString());
-
-
-			TweenLite.to(scroller, scrollTime, {
-				// scrollTo: {
-				// 	x: finalScroll,
-				// 	y: 0,
-				// 	autoKill: true
-				// },
-				scrollLeft: finalScroll,
-				ease: SlowMo.easeInOut,
-				// autoKill: true,
-				overwrite: 5
-			}) 
+		TweenLite.to($this.find(".text-container__img-text"), scrollTime, {
+			ease: SlowMo.easeInOut,
+			overwrite: 5,
+			transform: `translateY(-${window.scrollY / 8}px)`
 		})
-	}else
-		window.addEventListener("mousewheel", (event) => {
-			if (!window.state.anyScrollOpened)
-				return
-
-			event.preventDefault()
-
-			const delta = event.wheelDelta/120 || -event.detail/3;
-			const scrollTop = window.scrollY;
-			const finalScroll = scrollTop - parseInt((delta*scrollDistance).toString());
-
-			TweenLite.to(window, scrollTime, {
-				scrollTo: {
-					x: 0,
-					y: finalScroll,
-					autoKill: true
-				},
-				ease: SlowMo.easeInOut,
-				autoKill: true,
-				overwrite: 5
-			}) 
-		}, {
-			passive: false
-		})
-
-
-
-})
+	});
+}

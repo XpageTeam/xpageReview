@@ -3,6 +3,7 @@
 
 	&__img img
 		display: block
+		width: 100%
 
 	&__text
 		position: absolute 0
@@ -10,11 +11,13 @@
 		flex-direction: column
 		justify-content: center
 		color: #fff rgba(0,0,0, .6)
+		z-index: 2
 
 		.wrapper
 			width: 100%
 
-		span
+		a
+			color: inherit
 			display: block
 
 		&-title
@@ -25,3 +28,7 @@
 		&-subtitle
 			font-size: em(18)
 			line-height: calc(31 / 18)
+
+@media (max-width: 660px)
+	.next-review
+		font-size: 8px

@@ -22,17 +22,19 @@ html(lang="ru")
 						p Результат получился достойным, клиент был полностью доволен и мы решили качественно пополнить свое портфолио.
 				figure.text-container__img
 					img(src="img/photos/top-right-img.jpg")
+					figcaption.text-container__img-text «Шининвест»
 			section.text-container.text-container--center-text.text-container--left-img
 				.wrapper
 					.text-container__text
 						p По согласованию с клиентом мы подготовили для него “отзыв под ключ”. То есть собрали необходимый фотоконтент (здесь отдельная благодарность нашим партнерам @ ), структурировали полученный результат и зафиксировали все это в текстовом формате. Отзыв доступен по ссылке - *ссылка”.
 						p По итогу мы получили качественный отзыв для своего портфолио, а заказчик - улучшение коммуникаций с клиентами через сайт и приятный бонус от нашего агентства - “отзыв под ключ”, который отлично подчеркивает статусность компании @shininvest.ru
-						p
+						p(style="font-style: italic")
 							i Мы благодарим “Шининвест” за доверие, и планируем дальше работать над качественной презентацией своих результатов.
 								br
 								| #хэштеги
 				figure.text-container__img
 					img(src="img/photos/top-left-img.jpg")
+
 			section.text-container
 				.wrapper
 					.text-container__title
@@ -48,7 +50,6 @@ html(lang="ru")
 						p Так на новом сайте появилась запись на сервис в один клик для клиентов и функциональный инструмент работы с заявками для сотрудников.
 					figure.text-container__img
 						img(src="img/photos/mid-right-img.jpg")
-						figcaption.text-container__img-text «Шининвест»
 			br
 			br
 			br
@@ -125,12 +126,14 @@ html(lang="ru")
 								.about__text-title Команда проекта
 								.about__text-text Дмитрий Жердев, Иван Климов…
 								<!-- И Данил страдал от вёртски Гронского -->
-					a.next-link(href="#") Следующий отзыв
+					a.next-link(href="#")
+						span Следующий отзыв
 			section.next-review__cont
 				.next-review
 					figure.next-review__img
 						img(src="img/photos/next-review.jpg")
 					figcaption.next-review__text
 						.wrapper
-							span.next-review__text-title «LORENA кухни»
-							span.next-review__text-subtitle 2017 / Федеральная сеть, Уникальный дизайн, Личный кабинет
+							a.next-review__text-title(href="#") «LORENA кухни»
+							a.next-review__text-subtitle(href="#") 2017 / Федеральная сеть, Уникальный дизайн, Личный кабинет
+	include inc/scripts.pug

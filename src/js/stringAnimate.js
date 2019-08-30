@@ -68,7 +68,7 @@ export default class stringEffect{
 		this.$el.html("");
 
 		for (var text of textArr)
-			this.$el.append(" <span>"+text+"</span>");
+			this.$el.append(" <span style='display: inline-block;'>"+text+"</span>");
 
 	}
 

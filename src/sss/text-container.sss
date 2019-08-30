@@ -1,5 +1,30 @@
 .text-container
 	position: relative
+	max-width: 1920px
+	margin-left: auto !important
+	margin-right: auto !important
+
+	&:not(.js__visible) &__text
+		opacity: 0
+
+	&.js__visible &__text p, &.js__visible &__img, &.js__visible ul
+		opacity: 1
+		transform: translate3d(0,0,0)
+
+	&.js__visible &__text-title, &.js__visible &__title
+		opacity: 1
+		transform: translate3d(0,0,0)
+
+	&.js__visible &__img
+		transition-delay: .4s
+		max-height: 1000px
+
+	&.js__visible
+
+		.string
+			opacity: 1
+			transition: transform .7s ease, opacity .4s ease
+			transform: translate3d(0,0,0) !important
 
 	&-quote
 		margin: 195px 0 0
@@ -25,36 +50,54 @@
 		.wrapper
 			justify-content: flex-end
 
-	&--center-text &__img
-		top: 50%
-		transform: translateY(-50%)
+	&--center-text&--left-img &__img
+		top: -60px
+
+	&--center-text&--right-img &__img
+		top: -65px
 
 	&--top-text &__img
-		top: 0
+		top: 5px
 
 	&--bot-text &__img
-		bottom: 0
+		top: -160px
 
 	&__img
 		position: absolute
+		opacity: 0
+		transition: opacity .7s ease, max-height 2s ease
+		//margin: 200px 0 0
+		overflow: hidden
+		max-height: 0
+
+		&[style*="visible"] &-text
+			opacity: .3
 
 		&-text
-			position: absolute * 275px calc(100% - 130px) *
+			position: absolute calc(100% + 300px) 200px * *
 			writing-mode: tb-rl
 			color: #E5E5E5
-			opacity: .3
+			opacity: 0
 			font-size: em(144)
 			font-weight: bold
 			line-height: 1
 			z-index: -1
+			transition: opacity .3s ease
 
 		img
 			display: block
 
-
 	&__text
 		font-size: em(20)
 		line-height: calc(34 / 20)
+
+		p, ul
+			transition: opacity .3s ease, transform .5s ease
+			opacity: 0
+			transform: translate3d(0, 20%, 0)
+
+		i, [style*="italic"]
+			color: rgba(0,0,0, .4)
 
 		> *:not(.text-container__text-title)
 			max-width: 615px
@@ -66,19 +109,34 @@
 			font-size: em(36, 20)
 			line-height: calc(54 / 36)
 			max-width: 845px
+			transition: opacity .3s ease, transform .3s ease
+			opacity: 0
+			transition-delay: .3s
+			transform: translate3d(0, 20%, 0)
+
+			b
+				font-weight: bold
 
 	&__title
 		font-size: em(36)
 		line-height: calc(54 / 36)
 		max-width: 920px
+		transition: opacity .3s ease, transform .3s ease
+		opacity: 0
+		transition-delay: .3s
+		transform: translate3d(0, 20%, 0)
 
 		&:first-child:last-child
-			margin: 0 0 -150px
+			margin: 0 0 -110px
 
 	&__quote
 		text-align: center
 		max-width: 760px
 		margin: 0 auto
+
+@media (min-width: 1200px)
+	br + br + .text-container.text-container--center-text.text-container--right-img
+		margin: 190px 0 0
 
 @media (max-width: 1650px)
 	.text-container
@@ -97,3 +155,118 @@
 
 	body
 		font-size: 13px
+
+@media (max-width: 1500px)
+	.text-container__img-text
+		right: 150px
+
+	.text-container
+
+		&:not(:first-child)
+			margin: 110px 0 0
+
+		&--left-img &__img
+			max-width: 330px
+
+		&--right-img &__img
+			max-width: 550px
+
+	.text-container__title:first-child:last-child
+		margin: 0 0 -80px
+
+@media (max-width: 1400px)
+	.text-container
+
+		&--left-img:not(&--right-text) .wrapper
+			padding-right: 15vw
+			box-sizing: border-box
+			justify-content: flex-end
+
+@media (max-width: 1300px)
+	.text-container__img-text
+		display: none
+
+	.text-container
+
+		&:not(:first-child)
+			margin: 90px 0 0
+
+	br + br + br
+		display: none
+
+@media (max-width: 1200px)
+	.wrapper
+		box-sizing: border-box
+		margin: 0
+		padding: 0 20px !important
+
+	body
+		font-size: 12px
+
+
+	.text-container
+		display: flex
+
+		&:not(:first-child)
+			margin: 40px 0 0
+
+		.wrapper
+			display: flex
+			justify-content: space-between !important
+			width: auto
+			flex: 1 1 auto
+
+			&:first-child:last-child
+				width: 100%
+				max-width: none
+
+		&--left-img &__img
+			margin-right: 20px
+
+		&--right-img &__img
+			margin-left: 20px
+
+		&--left-img
+			flex-direction: row-reverse
+
+
+		&--right-text &__img
+			margin: 0 20px 0 0
+
+		&--right-text
+
+			.wrapper
+				flex-direction: row-reverse
+				width: 100%
+
+		&__img
+			transform: none !important
+			position: static
+
+			img
+				transform: none !important
+
+		.text-container__title:first-child:last-child
+			margin: 0
+
+		&--quote
+			margin: 70px 0 0 !important
+
+
+@media (max-width: 660px)
+	.text-container
+		flex-direction: column
+
+		&:not(:first-child)
+			margin: 30px 0 0 !important
+
+		&__img
+			margin: 20px 0 !important
+			width: 100%
+			max-width: none !important
+
+		.wrapper
+			flex-direction: column-reverse
+
+	.text-container__title, .text-container__text-title
+		font-size: 22px
